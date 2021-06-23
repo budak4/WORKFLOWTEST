@@ -18,4 +18,4 @@ jobs:
         date > date
         git add -A
         git commit -m "Looping..." -a
-        git push "https://github.com/budak4/WORKFLOWTEST.git" HEAD:master --follow-tags
+        git push "https://${GH_PAT}@github.com/${GITHUB_REPOSITORY}.git" HEAD:master --follow-tags
