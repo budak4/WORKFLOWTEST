@@ -13,8 +13,8 @@ jobs:
       env:
         GH_PAT: ${{ secrets.GH_PAT }}
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "amirhamzan3@gmail.com"
+        git config --local user.name "budak4"
         date > date
         git add -A
         git commit -m "Looping..." -a
