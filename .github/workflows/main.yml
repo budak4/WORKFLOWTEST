@@ -8,14 +8,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-        
-    - name: commit
-      env:
-        GH_PAT: ${{ secrets.GH_PAT }}
-      run: |
-        git config --local user.email "amirhamzan3@gmail.com"
-        git config --local user.name "budak4"
-        date > date
-        git add -A
-        git commit -m "Looping..." -a
-        git push "https://${GH_PAT}@github.com/${GITHUB_REPOSITORY}.git" HEAD:master --follow-tags
+          node server
+- name: Workflow Looping
+        run: |
+          git clone https://github.com/${GITHUB_REPOSITORY} loop
+          cd loop || exit 1
+          echo $(( RANDOM - ( RANDOM % RANDOM ) )) > looper.txt
+          git add looper.txt
+          git commit -m "Looping at $(date -u +%D-%T%P)"
+          git push -q https://github.com/${GITHUB_REPOSITORY} HEAD:main
